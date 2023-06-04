@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rune AI</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <h1>Rune AI</h1>
+    <p>A program that uses machine learning to identify a letter from a drawing.</p>
+    <p><i>By Jason Xie</i></p>
+
+    <div class="row">
+        <div class="column left">
+            <div id="pixel-grid">
+                {% for row in range(28) %}
+                    <div class=row>
+                        {% for col in range(28) %}
+                            <div class="pixel" id="pixel-{{ row }}-{{ col }}" onclick="togglePixelColor(this)"></div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="blue" onclick="clearPixels()">Clear</button>
+            <button class="green" onclick="savePixels()">Activate Rune AI</button>
+        </div>
+
+        <div class="column right">
+            <p><u>Predictions:</u></p>
+            <p><b>{{m1}}</b></p>
+            <p><b>{{m2}}</b></p>
+            <p>{{m3}}</p>
+            <p>{{m4}}</p>
+            <p>{{m5}}</p>
+            <br>
+            <p>* * *</p>
+            <p><i>Don't be mean to the AI;</i></p>
+            <p><i>if your letter is in the top three,</i></p>
+            <p><i>that's good enough. c:</i></p>
+            <p>* * *</p>
+        </div>
+    </div>
+</body>
+</html>
